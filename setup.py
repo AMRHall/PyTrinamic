@@ -50,6 +50,7 @@ setuptools.setup(
                 "PyTrinamic/ic/TMC5130/TMC5130",
                 "PyTrinamic/modules/TMCM_0010_OPC",
                 "PyTrinamic/modules/TMCM_1640",
+                "PyTrinamic/modules/TMCM_1160",
                 "PyTrinamic/helpers"],
     classifiers=[
         "Programming Language :: Python :: 3",
