@@ -148,26 +148,6 @@ class TMCM1160(object):
     AP_StepDirectionMode            = 254
 
 
-
-
-    
-
-    COMM_MODE_BLOCK_HALL            = 0
-
-    COMM_MODE_FOC_HALL              = 6
-
-    COMM_MODE_FOC_ENCODER           = 7
-
-    COMM_MODE_FOC_CONTROLLED        = 8
-
-    
-
-    ENCODER_INIT_MODE_0             = 0
-
-    ENCODER_INIT_MODE_1             = 1
-
-    ENCODER_INIT_MODE_2             = 2
-
     
 
     FLAG_POSITION_END               = 0x00004000
@@ -179,6 +159,8 @@ class TMCM1160(object):
         self.connection = connection
 
         self.motor = 0
+       
+        self.variables = 2
 
 
 
@@ -209,6 +191,17 @@ class TMCM1160(object):
 
         self.connection.setGlobalParameter(gpType, self.motor, value)
 
+    
+    def userVariable(self, variableNo):
+
+        return self.connection.globalParameter(variableNo, self.variables)
+
+    
+
+    def setUserVariable(self, variableNo, value):
+
+        self.connection.setGlobalParameter(variableNo, self.variables, value)  
+      
 
 
     " standard functions "
@@ -239,14 +232,14 @@ class TMCM1160(object):
 
     def rotate(self, velocity):
 
-        self.setAxisParameter(self.AP_TargetVelocity, velocity)
+        self.setAxisParameter(self.AP_TargetSpeed, velocity)
 
 
 
 
-    def actualVelocity(self):
+    def actualSpeed(self):
 
-        return self.axisParameter(self.AP_ActualVelocity)
+        return self.axisParameter(self.AP_ActualSpeed)
 
 
 
@@ -268,29 +261,15 @@ class TMCM1160(object):
 
     
 
-    def maxTorque(self):
+    def maxCurrent(self):
 
-        return self.axisParameter(self.AP_MaxTorque)
+        return self.axisParameter(self.AP_MaxCurrent)
 
         
 
-    def setMaxTorque(self, maxTorque):
+    def setMaxCurrent(self, maxCurrent):
 
-        self.setAxisParameter(self.AP_MaxTorque, maxTorque)
-
-
-
-
-    def openLoopTorque(self):
-
-        return self.axisParameter(self.AP_StartCurrent)
-
-    
-
-    def setOpenLoopTorque(self, torque):
-
-        self.setAxisParameter(self.AP_StartCurrent, torque)
-
+        self.setAxisParameter(self.AP_MaxCurrent, maxCurrent)
 
 
 
@@ -300,51 +279,21 @@ class TMCM1160(object):
 
 
 
-
     def setAcceleration(self, acceleration):
 
         self.setAxisParameter(self.AP_Acceleration, acceleration)
 
 
 
+    def targetReachedSpeed(self):
 
-    def targetReachedVelocity(self):
-
-        return self.axisParameter(self.AP_TargetReachedVelocity)
-
-    
-
-    def setTargetReachedVelocity(self, velocity):
-
-        self.setAxisParameter(self.AP_TargetReachedVelocity, velocity)
-
-
-
-
-    def targetReachedDistance(self):
-
-        return self.axisParameter(self.AP_TargetReachedDistance)
+        return self.axisParameter(self.AP_TargetReachedSpeed)
 
     
 
-    def setTargetReachedDistance(self, distance):
+    def setTargetReachedSpeed(self, velocity):
 
-        self.setAxisParameter(self.AP_TargetReachedDistance, distance)
-
-
-
-
-    def motorHaltedVelocity(self):
-
-        return self.axisParameter(self.AP_MotorHaltedVelocity)
-
-    
-
-    def setMotorHaltedVelocity(self, velocity):
-
-        self.setAxisParameter(self.AP_MotorHaltedVelocity, velocity)
-
-
+        self.setAxisParameter(self.AP_TargetReachedSpeed, velocity)
 
 
     def positionReached(self):
@@ -352,159 +301,9 @@ class TMCM1160(object):
         return ((self.statusFlags() & self.FLAG_POSITION_END) != 0)
 
 
+    def setRampMode(self, mode):
 
-
-    def rampEnabled(self):
-
-        return self.axisParameter(self.AP_EnableRamp)
-
-    
-
-    def setRampEnabled(self, enable):
-
-        self.setAxisParameter(self.AP_EnableRamp, enable) 
-
-
-
-
-    def torquePParameter(self):
-
-        return self.axisParameter(self.AP_TorqueP)
-
-    
-
-    def setTorquePParameter(self, pValue):
-
-        self.setAxisParameter(self.AP_TorqueP, pValue)
-
-
-
-
-    def torqueIParameter(self):
-
-        return self.axisParameter(self.AP_TorqueI)
-
-    
-
-    def setTorqueIParameter(self, pValue):
-
-        self.setAxisParameter(self.AP_TorqueI, pValue)
-
-
-
-
-    def velocityPParameter(self):
-
-        return self.axisParameter(self.AP_VelocityP)
-
-    
-
-    def setVelocityPParameter(self, pValue):
-
-        self.setAxisParameter(self.AP_VelocityP, pValue)
-
-
-
-
-    def velocityIParameter(self):
-
-        return self.axisParameter(self.AP_VelocityI)
-
-    
-
-    def setVelocityIParameter(self, pValue):
-
-        self.setAxisParameter(self.AP_VelocityI, pValue)
-
-
-
-
-    def positionPParameter(self):
-
-        return self.axisParameter(self.AP_PositionP)
-
-    
-
-    def setPositionPParameter(self, pValue):
-
-        self.setAxisParameter(self.AP_PositionP, pValue)
-
-
-
-
-    def motorPoles(self):
-
-        return self.axisParameter(self.AP_MotorPoles)
-
-    
-
-    def setMotorPoles(self, poles):
-
-        self.setAxisParameter(self.AP_MotorPoles, poles)
-
-        
-
-    def hallInvert(self):
-
-        return self.axisParameter(self.AP_HallSensorInvert)
-
-    
-
-    def setHallInvert(self, invert):
-
-        self.setAxisParameter(self.AP_HallSensorInvert, invert)
-
-
-
-
-    def encoderInitMode(self):
-
-        return self.axisParameter(self.AP_EncoderInitMode)
-
-    
-
-    def setEncoderInitMode(self, mode):
-
-        self.setAxisParameter(self.AP_EncoderInitMode, mode)
-
-
-
-
-    def encoderResolution(self):
-
-        return self.axisParameter(self.AP_EncoderSteps)
-
-    
-
-    def setEncoderResolution(self, steps):
-
-        self.setAxisParameter(self.AP_EncoderSteps, steps)
-
-
-
-
-    def encoderDirection(self):
-
-        return self.axisParameter(self.AP_EncoderDirection)
-
-    
-
-    def setEncoderDirection(self, direction):
-
-        self.setAxisParameter(self.AP_EncoderDirection, direction)
-
-
-
-
-    def commutationMode(self):
-
-        return self.axisParameter(self.AP_CommutationMode)
-
-            
-
-    def setCommutationMode(self, mode):
-
-        self.setAxisParameter(self.AP_CommutationMode, mode)
+        return self.axisParameter(self.AP_RampMode, mode)
 
         
 
@@ -514,11 +313,9 @@ class TMCM1160(object):
 
 
 
-
     def analogInput(self, x):
 
         return self.connection.analogInput(x)
-
 
 
 
@@ -526,68 +323,19 @@ class TMCM1160(object):
 
         return self.connection.digitalInput(x)
 
-
-
-
-    def showMotorConfiguration(self):
-
-        print("Motor configuration:")
-
-        print("\tMotor poles: " + str(self.motorPoles()))
-
-        print("\tMax torque:  " + str(self.maxTorque()) + " mA")
-
-        
-
-    def showHallConfiguration(self):
-
-        print("Hall configuration:")
-
-        print("\tHall invert: " + str(self.hallInvert()))
-
-
-
-
-    def showEncoderConfiguration(self):
-
-        print("Encoder configuration:")
-
-        print("\tOpen loop torque:   " + str(self.openLoopTorque()) + " mA")
-
-        print("\tEncoder resolution: " + str(self.encoderResolution()))
-
-        print("\tEncoder direction:  " + str(self.encoderDirection()))
-
-        print("\tEncoder init mode:  " + str(self.encoderInitMode()))
-
     
 
     def showMotionConfiguration(self):
 
         print("Motion configuration:")
 
-        print("\tMax velocity: " + str(self.maxVelocity()))
+        print("\tMax velocity: " + str(self.maxSpeed()))
 
         print("\tAcceleration: " + str(self.acceleration()))
 
-        print("\tRamp enabled: " + ("disabled" if (self.rampEnabled()==0) else "enabled"))
+        print("\tRamp mode: " + ("position" if (self.rampEnabled()==0) else "velocity"))
 
-        print("\tMotor halted velocity:   " + str(self.motorHaltedVelocity()))        
+        print("\tTarget reached velocity: " + str(self.targetReachedSpeed()))
 
-        print("\tTarget reached velocity: " + str(self.targetReachedVelocity()))
-
-        print("\tTarget reached distance: " + str(self.targetReachedDistance()))
-
-        
-
-    def showPIConfiguration(self):
-
-        print("PI configuration:")
-
-        print("\tTorque   P: " + str(self.torquePParameter()) + " I: " + str(self.torqueIParameter())) 
-
-        print("\tVelocity P: " + str(self.velocityPParameter()) + " I: " + str(self.velocityIParameter()))
-
-        print("\tPosition P: " + str(self.positionPParameter()))
-
+       
         
