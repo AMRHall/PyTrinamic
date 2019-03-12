@@ -250,14 +250,8 @@ class TMCM_1160(object):
      def setMaxCurrent(self, maxCurrent):
           self.setAxisParameter(self.AP_MaxCurrent, maxCurrent)
 
-     def acceleration(self):
-          return self.axisParameter(self.AP_Acceleration)
-
      def setTargetSpeed(self, speed):
           self.setAxisParameter(self.AP_TargetSpeed, speed)
-
-     def setAcceleration(self, acceleration):
-          self.setAxisParameter(self.AP_Acceleration, acceleration)
 
      def targetReachedSpeed(self):
           return self.axisParameter(self.AP_TargetReachedSpeed)
