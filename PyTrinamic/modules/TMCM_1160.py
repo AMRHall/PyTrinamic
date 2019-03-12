@@ -15,146 +15,146 @@ class TMCM1160(object):
 
     
 
-    AP_TargetPosition               = 0
+     AP_TargetPosition               = 0
 
-    AP_ActualPosition               = 1
+     AP_ActualPosition               = 1
 
-    AP_TargetSpeed                  = 2
+     AP_TargetSpeed                  = 2
  
-    AP_ActualSpeed.                 = 3
+     AP_ActualSpeed.                 = 3
 
-    AP_MaxVelocity                  = 4
+     AP_MaxVelocity                  = 4
 
-    AP_MaxAcceleration              = 5
+     AP_MaxAcceleration              = 5
 
-    AP_MaxCurrent                   = 6
+     AP_MaxCurrent                   = 6
 
-    AP_StandbyCurrent               = 7
+     AP_StandbyCurrent               = 7
 
-    AP_PositionReachedFlag          = 8
+     AP_PositionReachedFlag          = 8
 
-    AP_HomeSwitchState              = 9
+     AP_HomeSwitchState              = 9
 
-    AP_RightLimitSwitchState        = 10 
+     AP_RightLimitSwitchState        = 10 
 
-    AP_LeftLimitSwitchState         = 11
+     AP_LeftLimitSwitchState         = 11
 
-    AP_RightLimitSwitchDisable      = 12
+     AP_RightLimitSwitchDisable      = 12
 
-    AP_LeftLimitSwitchDisable.      = 13
+     AP_LeftLimitSwitchDisable.      = 13
 
-    AP_MinimumSpeed                 = 130
+     AP_MinimumSpeed                 = 130
 
-    AP_ActualAcceleration           = 135
+     AP_ActualAcceleration           = 135
 
-    AP_RampMode                     = 138
+     AP_RampMode                     = 138
 
-    AP_MicrostepResolution          = 140
+     AP_MicrostepResolution          = 140
 
-    AP_SoftStopFlag                 = 149
+     AP_SoftStopFlag                 = 149
 
-    AP_EndSwitchPowerDownMode       = 150
+     AP_EndSwitchPowerDownMode       = 150
 
-    AP_RampDivisor                  = 153
+     AP_RampDivisor                  = 153
 
-    AP_PulseDivisor                 = 154
+     AP_PulseDivisor                 = 154
 
-    AP_StepInterpolationEnable      = 160
+     AP_StepInterpolationEnable      = 160
 
-    AP_DoubleStepEnable             = 161
+     AP_DoubleStepEnable             = 161
 
-    AP_ChopperBlankTime             = 162
+     AP_ChopperBlankTime             = 162
 
-    AP_ConstantTOffMode             = 163
+     AP_ConstantTOffMode             = 163
 
-    AP_DisableFastDecayComperator   = 164
+     AP_DisableFastDecayComperator   = 164
 
-    AP_ChopperHysteresisEnd         = 165
+     AP_ChopperHysteresisEnd         = 165
 
-    AP_ChopperHysteresisStart       = 166
+     AP_ChopperHysteresisStart       = 166
 
-    AP_ChopperOffTime               = 167
+     AP_ChopperOffTime               = 167
 
-    AP_SmartEnergyCurrentMinimum    = 168
+     AP_SmartEnergyCurrentMinimum    = 168
 
-    AP_SmartEnergyCurrentDownStep   = 169
+     AP_SmartEnergyCurrentDownStep   = 169
 
-    AP_SmartEnergyHysteresis        = 170
+     AP_SmartEnergyHysteresis        = 170
 
-    AP_SmartEnergyCurrentUpStep     = 171
+     AP_SmartEnergyCurrentUpStep     = 171
 
-    AP_SmartEnergyHysteresisStart   = 172
+     AP_SmartEnergyHysteresisStart   = 172
 
-    AP_StallGuard2FilterEnable      = 173
+     AP_StallGuard2FilterEnable      = 173
 
-    AP_StallGuard2Threshold         = 174
+     AP_StallGuard2Threshold         = 174
 
-    AP_SlopeControlHighSide         = 175
+     AP_SlopeControlHighSide         = 175
 
-    AP_SlopeControlLowSide          = 176
+     AP_SlopeControlLowSide          = 176
 
-    AP_ShortProtectionDisable       = 177
+     AP_ShortProtectionDisable       = 177
 
-    AP_ShortDetectionTimer          = 178
+     AP_ShortDetectionTimer          = 178
 
-    AP_VSense                       = 179
+     AP_VSense                       = 179
 
-    AP_SmartEnergyActualCurrent     = 180
+     AP_SmartEnergyActualCurrent     = 180
 
-    AP_StopOnStall                  = 181
+     AP_StopOnStall                  = 181
 
-    AP_SmartEnergyThresholdSpeed    = 182
+     AP_SmartEnergyThresholdSpeed    = 182
 
-    AP_SmartEnergySlowRunCurrent    = 183
+     AP_SmartEnergySlowRunCurrent    = 183
 
-    AP_RandomTOffMode               = 184
+     AP_RandomTOffMode               = 184
 
-    AP_ReferenceSearchMode          = 193
+     AP_ReferenceSearchMode          = 193
 
-    AP_ReferenceSearchSpeed         = 194
+     AP_ReferenceSearchSpeed         = 194
 
-    AP_ReferenceSwitchSpeed         = 195
+     AP_ReferenceSwitchSpeed         = 195
 
-    AP_EndSwitchDistance            = 196
+     AP_EndSwitchDistance            = 196
 
-    AP_LastReferencePosition        = 197
+     AP_LastReferencePosition        = 197
 
-    AP_BoostCurrent                 = 200
+     AP_BoostCurrent                 = 200
 
-    AP_Freewheeling                 = 204
+     AP_Freewheeling                 = 204
 
-    AP_ActualLoadValue              = 206
+     AP_ActualLoadValue              = 206
 
-    AP_ExtendedErrorFlags           = 207
+     AP_ExtendedErrorFlags           = 207
 
-    AP_TMC262ErrorFlags             = 208
+     AP_TMC262ErrorFlags             = 208
 
-    AP_EncoderPosition              = 209
+     AP_EncoderPosition              = 209
 
-    AP_EncoderPrescaler             = 210
+     AP_EncoderPrescaler             = 210
 
-    AP_MaximumEncoderDeviation      = 212
+     AP_MaximumEncoderDeviation      = 212
 
-    AP_PowerDownDelay               = 214
+     AP_PowerDownDelay               = 214
 
-    AP_AbsoluteResolverValue        = 215
+     AP_AbsoluteResolverValue        = 215
 
-    AP_ExternalEncoderPosition      = 216
+     AP_ExternalEncoderPosition      = 216
 
-    AP_ExternalEncoderPrescaler     = 217
+     AP_ExternalEncoderPrescaler     = 217
 
-    AP_MaxExternalEncoderDeviation  = 218
+     AP_MaxExternalEncoderDeviation  = 218
 
-    AP_StepDirectionMode            = 254
+     AP_StepDirectionMode            = 254
 
 
     
 
-    FLAG_POSITION_END               = 0x00004000
+     FLAG_POSITION_END               = 0x00004000
 
     
 
-    def __init__(self, connection):
+     def __init__(self, connection):
 
         self.connection = connection
 
@@ -169,7 +169,7 @@ class TMCM1160(object):
 
     def axisParameter(self, apType):
 
-        return self.connection.axisParameter(apType, self.motor)
+          return self.connection.axisParameter(apType, self.motor)
 
     
 
