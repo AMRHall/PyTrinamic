@@ -242,6 +242,27 @@ class TMCM1160(object):
         return self.axisParameter(self.AP_ActualSpeed)
 
 
+    " Stallguard functions "
+    def motorRunCurrent(self, runCurrent):
+
+        self.setAxisParameter(self.AP_MotorRunCurrent, runCurrent)
+
+    def motorStandbyCurrent(self, standbyCurrent):
+
+        self.setAxisParameter(self.AP_MotorStandbyCurrent, standbyCurrent)
+     
+    def stallguard2Filter(self, filter):
+
+        self.setAxisParameter(self.AP_StallGuard2FilterEnable, filter)
+      
+    def stallguard2Threshold(self, threshold):
+
+        self.setAxisParameter(self.AP_StallGuard2Threshold, threshold)
+      
+    def stopOnStall(self, stopValue):
+
+        self.setAxisParameter(self.AP_StopOnStall, stopValue)
+     
 
 
     " helpful functions "
@@ -259,6 +280,16 @@ class TMCM1160(object):
 
         self.setAxisParameter(self.AP_MaxVelocity, maxVelocity)
 
+    
+    
+    def maxAcceleration(self):
+
+        return self.axisParameter(self.AP_MaxAcceleration)
+
+
+    def setMaxAcceleration(self, maxAcceleration):
+
+        self.setAxisParameter(self.AP_MaxAcceleration, maxAcceleration)
     
 
     def maxCurrent(self):
