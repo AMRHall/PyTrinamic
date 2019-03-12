@@ -211,10 +211,10 @@ class TMCM_1160(object):
 
      # Stallguard functions 
      def motorRunCurrent(self, runCurrent):
-          self.setAxisParameter(self.AP_MotorRunCurrent, runCurrent)
+          self.setAxisParameter(self.AP_MaxCurrent, runCurrent)
 
      def motorStandbyCurrent(self, standbyCurrent):
-          self.setAxisParameter(self.AP_MotorStandbyCurrent, standbyCurrent)
+          self.setAxisParameter(self.AP_StandbyCurrent, standbyCurrent)
 
      def stallguard2Filter(self, filter):
           self.setAxisParameter(self.AP_StallGuard2FilterEnable, filter)
