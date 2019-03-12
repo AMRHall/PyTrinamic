@@ -11,7 +11,7 @@ Created on 25.02.2019
 
 
 
-class TMCM1160(object):
+class TMCM_1160(object):
 
      
 
