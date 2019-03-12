@@ -41,7 +41,7 @@ class TMCM1160(object):
 
      AP_RightLimitSwitchDisable      = 12
 
-     AP_LeftLimitSwitchDisable.      = 13
+     AP_LeftLimitSwitchDisable       = 13
 
      AP_MinimumSpeed                 = 130
 
