@@ -254,7 +254,7 @@ class TMCM_1160(object):
           return self.axisParameter(self.AP_Acceleration)
 
      def setTargetSpeed(self, speed):
-          return self.axisParameter(self.AP_TargetSpeed, speed)
+          self.axisParameter(self.AP_TargetSpeed, speed)
 
      def setAcceleration(self, acceleration):
           self.setAxisParameter(self.AP_Acceleration, acceleration)
