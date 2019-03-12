@@ -165,7 +165,7 @@ class TMCM1160(object):
 
 
 
-    " axis parameter access "
+    # axis parameter access 
 
     def axisParameter(self, apType):
 
@@ -179,7 +179,7 @@ class TMCM1160(object):
 
 
 
-    " global parameter access "
+    # global parameter access 
 
     def globalParameter(self, gpType):
 
@@ -204,7 +204,7 @@ class TMCM1160(object):
       
 
 
-    " standard functions "
+    # standard functions 
 
     def moveToPosition(self, position):
 
@@ -242,7 +242,7 @@ class TMCM1160(object):
         return self.axisParameter(self.AP_ActualSpeed)
 
 
-    " Stallguard functions "
+    # Stallguard functions 
     def motorRunCurrent(self, runCurrent):
 
         self.setAxisParameter(self.AP_MotorRunCurrent, runCurrent)
@@ -265,7 +265,7 @@ class TMCM1160(object):
      
 
 
-    " helpful functions "
+    # helpful functions 
 
 
 
