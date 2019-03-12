@@ -168,70 +168,41 @@ class TMCM1160(object):
     # axis parameter access 
 
     def axisParameter(self, apType):
-
-          return self.connection.axisParameter(apType, self.motor)
-
-    
+        return self.connection.axisParameter(apType, self.motor)
 
     def setAxisParameter(self, apType, value):
-
         self.connection.setAxisParameter(apType, self.motor, value)
 
-
-
     # global parameter access 
-
+    
     def globalParameter(self, gpType):
-
         return self.connection.globalParameter(gpType, self.motor)
 
-    
-
     def setGlobalParameter(self, gpType, value):
-
         self.connection.setGlobalParameter(gpType, self.motor, value)
 
-    
     def userVariable(self, variableNo):
-
         return self.connection.globalParameter(variableNo, self.variables)
 
-    
-
     def setUserVariable(self, variableNo, value):
-
         self.connection.setGlobalParameter(variableNo, self.variables, value)  
       
-
 
     # standard functions 
 
     def moveToPosition(self, position):
-
         self.setAxisParameter(self.AP_TargetPosition, position)
 
-    
-
     def targetPosition(self):
-
         return self.axisParameter(self.AP_TargetPosition)
 
-    
-
     def actualPosition(self):
-
         return self.axisParameter(self.AP_ActualPosition)
-
-        
-
+   
     def setActualPosition(self, position):
-
         return self.setAxisParameter(self.AP_ActualPosition, position)
 
-    
-
     def rotate(self, velocity):
-
         self.setAxisParameter(self.AP_TargetSpeed, velocity)
 
 
