@@ -21,7 +21,7 @@ class TMCM1160(object):
 
      AP_TargetSpeed                  = 2
  
-     AP_ActualSpeed.                 = 3
+     AP_ActualSpeed                  = 3
 
      AP_MaxVelocity                  = 4
 
