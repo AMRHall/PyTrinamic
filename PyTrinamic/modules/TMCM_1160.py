@@ -319,7 +319,7 @@ class TMCM_1160(object):
           return self.axisParameter(self.AP_RampMode, mode)
 
      def statusFlags(self):
-          return self.axisParameter(self.AP_StatusFlags)
+          return self.axisParameter(self.AP_ExtendedErrorFlags)
 
      def analogInput(self, x):
           return self.connection.analogInput(x)
