@@ -14,6 +14,7 @@ Created on 25.02.2019
 class TMCM_1160(object):
 
      
+# Axis Parameters
 
      AP_TargetPosition               = 0
 
@@ -23,7 +24,7 @@ class TMCM_1160(object):
 
      AP_ActualSpeed                  = 3
 
-     AP_MaxVelocity                  = 4
+     AP_MaxPositioningSpeed          = 4
 
      AP_MaxAcceleration              = 5
 
@@ -147,8 +148,60 @@ class TMCM_1160(object):
 
      AP_StepDirectionMode            = 254
 
+     
 
+# Global Parameters
 
+     GP_BaudRate                     = 65
+
+     GP_SerialAddress                = 66
+
+     GP_ASCIIMode                    = 67
+
+     GP_SerialHeartbeat              = 68
+
+     GP_CANBitRate                   = 69
+
+     GP_CANReplyID                   = 70
+
+     GP_CANID                        = 71     
+
+     GP_TelegramPauseTime            = 75
+     
+     GP_SerialHostAddress            = 76
+     
+     GP_AutoStartMode                = 77
+     
+     GP_EndSwitchPolarity            = 79
+     
+     GP_TMCLCodeProtection           = 81
+     
+     GP_CANHeartbeat                 = 82
+     
+     GP_CANSecondaryAddress          = 83
+     
+     GP_CoordinateStorage            = 84
+     
+     GP_DoNotRestoreUserVariables    = 85
+     
+     GP_SerialSecondaryAddress       = 87
+     
+     GP_ReverseShaft                 = 90
+     
+     GP_TMCLApplicationStatus        = 128
+     
+     GP_DownloadMode                 = 128
+     
+     GP_TMCLProgramCounter           = 130
+     
+     GP_TMCLTickTimer                = 132
+     
+     GP_RandomNumber                 = 133
+     
+     GP_Suppress Reply               = 255
+     
+     
+     
 
      FLAG_POSITION_END               = 0x00004000
 
@@ -180,6 +233,8 @@ class TMCM_1160(object):
 
      def setGlobalParameter(self, gpType, value):
           self.connection.setGlobalParameter(gpType, self.motor, value)
+          
+     # user variable access 
 
      def userVariable(self, variableNo):
           return self.connection.globalParameter(variableNo, self.variables)
@@ -187,6 +242,7 @@ class TMCM_1160(object):
      def setUserVariable(self, variableNo, value):
           self.connection.setGlobalParameter(variableNo, self.variables, value)  
 
+          
 
      # standard functions 
 
@@ -202,14 +258,16 @@ class TMCM_1160(object):
      def setActualPosition(self, position):
           return self.setAxisParameter(self.AP_ActualPosition, position)
 
-     def rotate(self, velocity):
-          self.setAxisParameter(self.AP_TargetSpeed, velocity)
+     def rotate(self, speed):
+          self.setAxisParameter(self.AP_TargetSpeed, speed)
 
      def actualSpeed(self):
           return self.axisParameter(self.AP_ActualSpeed)
 
 
+     
      # Stallguard functions 
+     
      def motorRunCurrent(self, runCurrent):
           self.setAxisParameter(self.AP_MaxCurrent, runCurrent)
 
@@ -230,13 +288,11 @@ class TMCM_1160(object):
      # helpful functions 
 
 
-
-
      def maxVelocity(self):
-          return self.axisParameter(self.AP_MaxVelocity)
+          return self.axisParameter(self.AP_MaxPositioningSpeed)
 
      def setMaxVelocity(self, maxVelocity):
-          self.setAxisParameter(self.AP_MaxVelocity, maxVelocity)
+          self.setAxisParameter(self.AP_MaxPositioningSpeed, maxVelocity)
 
      def maxAcceleration(self):
           return self.axisParameter(self.AP_MaxAcceleration)
@@ -249,15 +305,12 @@ class TMCM_1160(object):
 
      def setMaxCurrent(self, maxCurrent):
           self.setAxisParameter(self.AP_MaxCurrent, maxCurrent)
-
+          
+     def targetSpeed(self):
+          return self.axisParameter(self.AP_TargetSpeed)
+     
      def setTargetSpeed(self, speed):
           self.setAxisParameter(self.AP_TargetSpeed, speed)
-
-     def targetReachedSpeed(self):
-          return self.axisParameter(self.AP_TargetReachedSpeed)
-
-     def setTargetReachedSpeed(self, velocity):
-          self.setAxisParameter(self.AP_TargetReachedSpeed, velocity)
 
      def positionReached(self):
           return ((self.statusFlags() & self.FLAG_POSITION_END) != 0)
@@ -277,6 +330,5 @@ class TMCM_1160(object):
      def showMotionConfiguration(self):
           print("Motion configuration:")
           print("\tMax velocity: " + str(self.maxSpeed()))
-          print("\tAcceleration: " + str(self.acceleration()))
+          print("\tAcceleration: " + str(self.maxAcceleration()))
           print("\tRamp mode: " + ("position" if (self.rampEnabled()==0) else "velocity"))
-          print("\tTarget reached velocity: " + str(self.targetReachedSpeed()))
