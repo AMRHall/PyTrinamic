@@ -198,7 +198,7 @@ class TMCM_1160(object):
      
      GP_RandomNumber                 = 133
      
-     GP_Suppress Reply               = 255
+     GP_SuppressReply               = 255
      
      
      
